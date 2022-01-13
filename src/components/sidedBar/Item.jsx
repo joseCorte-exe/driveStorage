@@ -1,13 +1,20 @@
 import React from 'react'
 
-import { ChevronRightIcon } from '@chakra-ui/icons'
+import { Icon } from '@chakra-ui/icons'
+import { BiCaretRight } from 'react-icons/bi';
 
 import { ItemS } from './style'
 
-export default function Item() {
+export default function Item({arrow, icon, label}) {
     return (
         <ItemS>
-            <ChevronRightIcon />
+            <div>
+                {arrow && <Icon as={BiCaretRight} />}
+            </div>
+            <div>
+                {icon}
+                <p>{label}</p>
+            </div>
         </ItemS>
     )
 }

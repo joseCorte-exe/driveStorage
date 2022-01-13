@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 
 import Header from './components/header/Header.jsx';
+import SideBar from './components/sidedBar/SideBar';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <Header userProfile={user.photoURL} />
+      <SideBar />
       {/* <h1>Hello World	&#128640; </h1> */}
     </div>
   );

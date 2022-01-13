@@ -2,6 +2,8 @@
 import React from 'react'
 
 import { ChevronDownIcon, SearchIcon, HamburgerIcon } from '@chakra-ui/icons'
+import { AiOutlineUser } from 'react-icons/ai'
+import { Avatar } from '@chakra-ui/react'
 
 import Logo from '../../assets/logo.svg'
 
@@ -23,7 +25,8 @@ export default function Header({userProfile}) {
             </section>
             <section id='userSection' >
                 <HamburgerIcon w={50} height={20} />
-                <img source={userProfile} />
+                {/* <img source={userProfile} /> */}
+                <Avatar icon={<AiOutlineUser fontSize='1.5rem' />} />
             </section>
         </HeaderS>
     );
