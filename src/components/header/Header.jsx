@@ -9,7 +9,7 @@ import Logo from '../../assets/logo.svg'
 
 import { HeaderS } from './style'
 
-export default function Header({userProfile}) {
+export default function Header() {
     return (
         <HeaderS>
             <div>

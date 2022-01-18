@@ -7,9 +7,11 @@ import Modal from '@material-ui/core/Modal'
 
 import { NewFileButtonS } from './style';
 
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+import firebase from 'firebase';
+
+// import firebase from 'firebase/compat/app';
+// import 'firebase/compat/auth';
+// import 'firebase/compat/firestore';
 import { storage, db } from '../../firebase'
 
 function getModalStyle() {
@@ -52,7 +54,7 @@ export default function NewFileButton() {
 
             storage.ref('files').child(file.name).getDownloadURL().then(url => {
                     db.collection('myFiles').add({
-                        timestamp: firebase.firebase.FieldValue.serverTimestap(),
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                         caption: file.name,
                         fileUrl: url,
                         size: snapshot._delegate.bytesTransferred,
@@ -61,6 +63,8 @@ export default function NewFileButton() {
                 setUploading(false);
                 setOpen(false);
                 setFile(null);
+
+                console.log(uploading);
             })
         })
     }
@@ -69,7 +73,10 @@ export default function NewFileButton() {
         if(e.target.files[0]) {
             setFile(e.target.files[0])
         }
+        console.log(e.target.files[0])
     }
+
+    // console.log(file.name);
 
     return (
         <>
